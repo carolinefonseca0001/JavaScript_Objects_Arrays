@@ -50,7 +50,7 @@ console.log(book.info())
 console.log("Exercise 3");
 
 console.log("Step 2");
-let sentence = "The quick brown fox jumps over the lazy dog";
+let sentence = "The quick bvaluesn fox jumps over the lazy dog";
 
 const myArray = sentence.split(" ");
 
@@ -58,7 +58,7 @@ console.log(myArray)
 
 const words = [(myArray)]
 
-const words2= ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"];
+const words2= ["the", "quick", "bvaluesn", "fox", "jumps", "over", "the", "lazy", "dog"];
 
 
 console.log("Step 3");
@@ -70,24 +70,70 @@ while (i < words2.length) {
 
 
 console.log("Step 4");
-const myArray2 = sentence.split("");
+const wordsSplit = sentence.split("");
 
-console.log(myArray2)
+console.log(wordsSplit)
 
 console.log("Step 5");
 
-const reversed = myArray2.reverse();
+const reversed = wordsSplit.reverse();
 console.log(reversed);
 
-// https://www.w3schools.com/jsref/jsref_obj_string.asp
-// I know the answer to this is in here somewhere....
+const reversedSentence = reversed.join(" ");
 
 console.log("Step 6");
+console.log(reversedSentence.toString())
 
-const result =  myArray2.toString(reversed);
 
-console.log(result)
 
 console.log("Exercise 4")
 let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
 
+function csvConverter(data) 
+
+{
+    let headers = data.slice(0, data.indexOf("\n")).split(",");
+    // let headers = headersString.split(",");
+
+    let valuesList = data.slice(data.indexOf("\n") + 1).split("\n");
+    // let values = values.split(",");
+
+    const output = valuesList.map((row) => {
+        let values = row.split (",");
+        let obj = {};
+
+        values.forEach((value, idx) => {
+            if (idx < headers.length) {
+                obj[headers[idx]] = value;
+            } else {
+                obj[`misc${idx}`] = value;
+            }
+        });
+
+        return obj;
+    });
+    return output;
+}
+
+console.log(csvConverter(csvData));
+console.log(csvConverter("name,city,occupation\nCaroline, Port Royal, Web Developer")
+);
+
+function converter(fileData){
+let values = fileData.split("\n");
+let headers = values[0].split(",");
+
+let result = []
+
+for (let i = 1; i < values.length; i++) {
+    let obj = {};
+    let data = values[i].split(",");
+    data.forEach((value, index) => {
+        let headerName = headers[index];
+        obj[headerName] = value;
+    });
+    result.push(obj);
+}
+
+return result;
+}

@@ -87,19 +87,17 @@ console.log(reversedSentence.toString())
 
 
 console.log("Exercise 4")
+//cannot for the life of me figure out why my headings are reversed in both examples here but this is close enough.
 let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
 
 function csvConverter(data) 
-
 {
     let headers = data.slice(0, data.indexOf("\n")).split(",");
-    // let headers = headersString.split(",");
 
     let valuesList = data.slice(data.indexOf("\n") + 1).split("\n");
-    // let values = values.split(",");
 
     const output = valuesList.map((row) => {
-        let values = row.split (",");
+        let values = row.split(",");
         let obj = {};
 
         values.forEach((value, idx) => {
@@ -125,7 +123,7 @@ let headers = values[0].split(",");
 
 let result = []
 
-for (let i = 1; i < values.length; i++) {
+for (let i = 0; i < values.length; i++) {
     let obj = {};
     let data = values[i].split(",");
     data.forEach((value, index) => {

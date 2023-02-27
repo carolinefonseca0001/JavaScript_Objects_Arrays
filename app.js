@@ -49,40 +49,29 @@ console.log(book.info())
 
 console.log("Exercise 3");
 
-console.log("Step 2");
-let sentence = "The quick bvaluesn fox jumps over the lazy dog";
-
+let sentence = "The quick brown fox jumps over the lazy dog";
 const myArray = sentence.split(" ");
-
 console.log(myArray)
 
-const words = [(myArray)]
-
-const words2= ["the", "quick", "bvaluesn", "fox", "jumps", "over", "the", "lazy", "dog"];
-
-
-console.log("Step 3");
 let i = 0;
-while (i < words2.length) {
-    console.log(words2[i]);
+while (i < myArray.length) {
+    let wordsSplit = myArray[i].split("")
+    let reversed = wordsSplit.reverse();
+    myArray[i] = reversed.join("")
     i++;
 }
+const result = myArray.join("")
+console.log(myArray.toString());
 
 
-console.log("Step 4");
-const wordsSplit = sentence.split("");
+// const wordsSplit = sentence.split("");
+// console.log(wordsSplit)
 
-console.log(wordsSplit)
 
-console.log("Step 5");
+// const reversedSentence = reversed.join(" ");
 
-const reversed = wordsSplit.reverse();
-console.log(reversed);
 
-const reversedSentence = reversed.join(" ");
-
-console.log("Step 6");
-console.log(reversedSentence.toString())
+// console.log(reversedSentence.toString())
 
 
 
